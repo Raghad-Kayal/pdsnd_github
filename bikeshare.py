@@ -101,15 +101,15 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # TO DO: display the most common month
+    # display the most common month
     month = df['month'].value_counts().idxmax()
     print('The most common month is: \n', month)
 
-    # TO DO: display the most common day of week
+    # display the most common day of week
     day = df['day_of_week'].value_counts().idxmax()
     print('The most common day is: \n', day)
 
-    # TO DO: display the most common start hour
+    # display the most common start hour
     hour = df['hours'].value_counts().idxmax()
     print('The most common hour is: \n', hour)
 
@@ -123,15 +123,15 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # TO DO: display most commonly used start station
+    # display most commonly used start station
     start_station = df['Start Station'].value_counts().idxmax()
     print('The most common used start station: \n', start_station)
 
-    # TO DO: display most commonly used end station
+    # display most commonly used end station
     end_station = df['End Station'].value_counts().idxmax()
     print('The most common used end station: \n', end_station)
 
-    # TO DO: display most frequent combination of start station and end station trip
+    # display most frequent combination of start station and end station trip
     df['day_of_week'] = df['Start Time'].dt.day_name()
     df['combination of start and end station'] = df['Start Station'] + \
         [' and ']+df['End Station']
@@ -148,11 +148,11 @@ def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # TO DO: display total travel time
+    # display total travel time
     travel_time = df.groupby(['User Type'])['Trip Duration'].sum()
     print('The total time spent: \n', travel_time)
 
-    # TO DO: display mean travel time
+    # display mean travel time
 
     travel_mean = df.groupby(['User Type'])['Trip Duration'].mean()
     print('The mean travel time:\n', travel_mean)
@@ -169,15 +169,15 @@ def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # TO DO: Display counts of user types
+    # Display counts of user types
     Users = df['User Type'].value_counts()
     print('User types are: \n', Users)
 
-    # TO DO: Display counts of gender
+    #  Display counts of gender
     Gender = df['Gender'].value_counts()
     print('Genders are: \n', Gender)
 
-    # TO DO: Display earliest, most recent, and most common year of birth
+    # Display earliest, most recent, and most common year of birth
     print("\nThe most recent:{} \nThe earlist:{} \nThe most common: {} ".format(
         df['Birth Year'].max(), df['Birth Year'].min(), df['Birth Year'].value_counts().idxmax()))
     print("\nThis took %s seconds." % (time.time() - start_time))
